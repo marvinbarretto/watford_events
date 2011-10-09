@@ -16,7 +16,7 @@ describe PagesController do
     
     it "should have the right title" do
       get 'home'
-      response.should have_selector("title", :content => "Home « #{@base_title}")
+      response.should have_selector("title", :content => "Home | #{@base_title}")
     end
     
     it "should have a non-blank body" do
@@ -34,7 +34,7 @@ describe PagesController do
 
     it "should have the right title" do
       get 'contact'
-      response.should have_selector("title", :content => "Contact « #{@base_title}")
+      response.should have_selector("title", :content => "Contact | #{@base_title}")
     end
 
   end
@@ -47,7 +47,7 @@ describe PagesController do
     
     it "should have the right title" do
       get 'about'
-      response.should have_selector("title", :content => "About « #{@base_title}")
+      response.should have_selector("title", :content => "About | #{@base_title}")
     end
   end
 
@@ -59,7 +59,7 @@ describe PagesController do
     
     it "should have the right title" do
       get 'help'
-      response.should have_selector("title", :content => "Help « #{@base_title}")
+      response.should have_selector("title", :content => "Help | #{@base_title}")
     end
   end
 
