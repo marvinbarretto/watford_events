@@ -10,4 +10,7 @@ module ApplicationHelper
     end
   end
   
+  def logo
+    image_tag("rails.png", :alt => "Logo alternative text", :class=> "round")
+  end
 end
