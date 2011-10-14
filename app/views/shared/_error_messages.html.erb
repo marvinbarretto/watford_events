@@ -1,0 +1,15 @@
+<% if @user.errors.any? %>
+	<section id="error_explanation">
+		<h1>
+			<%= pluralize(@user.errors.count, "error") %>
+			stopped this <em>user</em> from being saved:
+		</h1>
+		<p>There were problems with the following fields:</p>
+		
+		<ul>
+		<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+		</ul>
+	</section>
+<% end %>
