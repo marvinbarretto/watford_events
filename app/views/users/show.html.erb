@@ -3,6 +3,12 @@
 	<%= @user.name %>
 </h1>
 
+Name - <%= @user.name %>
+URL - <%= link_to user_path(@user), @user %>
+<br />
+
+
+
 <p>Find me in app/views/users/show.html.erb</p>
 
 <%= @user.email %>
