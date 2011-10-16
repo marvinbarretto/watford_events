@@ -16,8 +16,7 @@ class UsersController < ApplicationController
     
     @user = User.new(params[:user])
     if @user.save
-      # Refactor below: redirect_to user_path(@user)
-      
+      sign_in @user
       redirect_to @user, :flash => { :success => "Welcome to Watford Events" }
     else  
       @title = "Sign up"
