@@ -20,14 +20,22 @@ class User < ActiveRecord::Base
   end
   
   class << self
+
     def authenticate(email, submitted_password)
       # Could use self.authenticate instead
       # without the class << self
       # In this instance, it would refer to the User class itself
-
       user = find_by_email(email)
-      return nil if user.nil?
-      return user if user.has_password?(submitted_password)
+
+      # return nil if user.nil?
+      # return user if user.has_password?(submitted_password)
+      # refactored:
+      (user && user.has_password?(submitted_password)) ? user : nil
+    end
+    
+    def authenticate_with_salt(id, cookie_salt)
+      user = find_by_id(id)
+      (user && user.salt == cookie_salt) ? user : nil
     end    
   end
   
@@ -53,6 +61,7 @@ class User < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -63,5 +72,6 @@ end
 #  created_at         :datetime
 #  updated_at         :datetime
 #  encrypted_password :string(255)
+#  salt               :string(255)
 #
 
