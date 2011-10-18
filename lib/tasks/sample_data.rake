@@ -7,10 +7,12 @@ namespace :db do
     # Reset the database before we do the db population
     Rake::Task['db:reset'].invoke
     
-    User.create!(:name => "Example User",
+    admin = User.create!(:name => "Example User",
                  :email => "example@railstutorial.org",
                  :password => "foobar",
                  :password_confirmation => "foobar")
+    
+    admin.toggle!(:admin)
     
     99.times do |n|
       name  = Faker::Name.name
