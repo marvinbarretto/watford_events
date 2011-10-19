@@ -1,13 +1,13 @@
-<% if @user.errors.any? %>
+<% if object.errors.any? %>
 	<section id="error_explanation">
 		<h1>
-			<%= pluralize(@user.errors.count, "error") %>
-			stopped this <em>user</em> from being saved:
+			<%= pluralize(object.errors.count, "error") %>
+			stopped this <em><%= object.class.to_s.underscore.humanize.downcase %></em> from being saved:
 		</h1>
 		<p>There were problems with the following fields:</p>
 		
 		<ul>
-		<% @user.errors.full_messages.each do |message| %>
+		<% object.errors.full_messages.each do |message| %>
 			<li><%= message %></li>
 		<% end %>
 		</ul>
