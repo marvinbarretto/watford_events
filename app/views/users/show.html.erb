@@ -1,5 +1,5 @@
 <h1>
-	<%= gravatar_for @user, :size => 62 %>
+	<%= gravatar_for @user, :size => 50 %>
 	<%= @user.name %>
 </h1>
 
@@ -10,11 +10,11 @@
 	<%= will_paginate @microposts %>
 <% end %>
 
+
 Name - <%= @user.name %>
 <br>
 URL - <%= link_to user_path(@user), @user %>
 <br>
-
 Count - <span class="micropost_count"><%= @user.microposts.count %></span>
 
 

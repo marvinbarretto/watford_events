@@ -21,6 +21,13 @@ class User < ActiveRecord::Base
     encrypted_password == encrypt(submitted_password)
   end
   
+  def feed
+    # Find all where...
+    # ? automatically escapes whatever is going in (In this case the ID)
+    # prevent SQL injection
+    Micropost.where("user_id = ?", id)
+  end
+  
   class << self
 
     def authenticate(email, submitted_password)
