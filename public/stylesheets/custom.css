@@ -1,5 +1,89 @@
+/* TODO: Better reset */
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
+	font-family: 'Varela Round', sans-serif;
+	margin-bottom: 20px;
 	background: #EEE;
+}
+
+header {
+	background: #CCC;
+}
+
+/***/
+
+.flash {
+	border: solid 2px;
+}
+
+.flash.success {
+	border-color: green;
+	background: rgba(0,255,0,.5);
+}
+
+.flash.notice {
+	border-color: yellow;
+	background: rgba(255,255,0,.5);
+}
+
+.flash.error {
+	border-color: red;
+	background: rgba(255,0,0,.5);
+}
+
+nav {
+	background: #FFF;
+}
+
+nav ul {
+	list-style-type: none;
+	overflow: hidden; _zoom: 1;
+}
+
+nav ul li {
+	float: left;
+	margin-right: 10px;
+}
+
+nav ul li a {
+	display: block;
+	padding: 5px;
+}
+
+/***/
+
+ol#microposts {
+	list-style-type: none;
+	margin: 20px 40px;
+}
+
+#microposts li {
+	border-bottom: dotted 1px #CCC;
+	padding: 4px 0;
+	text-shadow: 1px 1px #EEE;
+}
+
+#microposts .timestamp {
+	color: #666;
+	font-style: italic;
+	font-size: 12px;
+} 
+
+/***/
+
+.pagination {
+	background: #FFF;
+	padding: 10px;
+}
+
+.pagination em,
+.pagination span,
+.pagination a {
+	padding: 5px;
 }
 
 footer {
