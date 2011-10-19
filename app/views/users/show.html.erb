@@ -3,9 +3,20 @@
 	<%= @user.name %>
 </h1>
 
+<% if @user.microposts.any? %>
+	<div id="microposts">
+		<%= render @microposts %>
+	</div>
+	<%= will_paginate @microposts %>
+<% end %>
+
 Name - <%= @user.name %>
+<br>
 URL - <%= link_to user_path(@user), @user %>
-<br />
+<br>
+
+Count - <span class="micropost_count"><%= @user.microposts.count %></span>
+
 
 
 
