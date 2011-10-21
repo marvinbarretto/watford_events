@@ -36,6 +36,9 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
   
+  # Scope is powerful, you can chain
+  scope :admin, where(:admin => true)
+
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
   end
@@ -44,7 +47,9 @@ class User < ActiveRecord::Base
     # Find all where...
     # ? automatically escapes whatever is going in (In this case the ID)
     # prevent SQL injection
-    Micropost.where("user_id = ?", id)
+    # Micropost.where("user_id = ?", id)
+    
+    Micropost.from_users_followed_by(self)
   end
   
   def following?(followed)
